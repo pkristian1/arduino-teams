@@ -28,12 +28,12 @@ CMD = 'tasklist /fo table /v /fi "imagename eq Teams.exe" /fi "windowtitle eq Me
 # Let etter teams prosessen
 def find_teams():
     # Søk etter prossesen som har riktig navn og exe
-    p = os.popen(CMD).read().splitlines()
+    process = os.popen(CMD).read().splitlines()
 
     global in_teams_meeting
     in_teams_meeting = False
     
-    for item in p:
+    for item in process:
         if 'teams.exe' in item.lower():
             in_teams_meeting = True
 
@@ -49,7 +49,7 @@ while True:
 
     if in_teams_meeting and not ovveride:
         setColor(255, 0, 0)
-    else:
+    elif not in_teams_meeting:
         setColor(0, 0, 0)
         ovveride = False
 
