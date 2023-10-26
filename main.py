@@ -20,6 +20,7 @@ blue = board.get_pin("d:11:p")
 
 
 in_teams_meeting = False
+ovveride = False
 
 # Sjekke teams kommando
 CMD = 'tasklist /fo table /v /fi "imagename eq Teams.exe" /fi "windowtitle eq Meet*"'
@@ -50,9 +51,10 @@ while True:
         setColor(255, 0, 0)
     else:
         setColor(0, 0, 0)
+        ovveride = False
 
     if button.read():
         setColor(0, 255, 0)
-        time.sleep(10)
+        ovveride = True
 
     time.sleep(0.1)
