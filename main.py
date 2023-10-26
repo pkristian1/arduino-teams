@@ -47,7 +47,7 @@ def setColor(r, g, b):
 while True:
     find_teams()
 
-    if in_teams_meeting:
+    if in_teams_meeting and not ovveride:
         setColor(255, 0, 0)
     else:
         setColor(0, 0, 0)
